@@ -6,12 +6,12 @@ You will need the GoogleNews word2vec model ([Dowload](https://drive.google.com/
 Change parameter in ***config.py*** file, then run ***run_train.py*** file.
 
 ### Evalutaion
-1. Loss and Accuracy
+#### Loss and Accuracy
 run ***run_eval.py*** for evaluating loss and binary accuracy on validate set.
 
 Syntax: ```run_eval.py -se [start_epoch] -ee[end_epoch]```
 
-2. Recall@k
+#### Recall@k
 run ***run_recall.py*** for evaluating recall@k on validate set
 
 Syntax: ```run_recall.py -se [start_epoch] -ee[end_epoch] -k [top_k_value]```
