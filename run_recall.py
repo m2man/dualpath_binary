@@ -11,6 +11,7 @@ import config
 import os
 import argparse
 import tensorflow.keras as keras
+from scipy import spatial 
 
 def parse_arguments():
   parser = argparse.ArgumentParser(
@@ -99,7 +100,7 @@ def get_txt_ft_from_branch(text_branch, list_text):
   for idx, text_x in enumerate(list_text):
     text_input_x = mylib.embedding_sentence(text_x, config.my_dictionary, max_len=max_len)
     text_input_x = tf.convert_to_tensor(text_input_x, dtype=tf.float32)
-    text_out[i] = text_branch(text_input_x).numpy()
+    text_out[idx] = text_branch(text_input_x).numpy()
   print("Finished processing Text Branch ...")
   return text_out
 
@@ -177,7 +178,7 @@ def main():
   for k in top_k:
     info += "{},".format(k)
   info = info[0:-1] + "]"
-  print("---------------"info)    
+  print("---------------\n\n" + info + "\n\n---------------")    
 
   log_filename = os.path.join('report/version_4/','dualpath_v4_stage_1_recall.log')
   if not os.path.exists('report/version_4/'):
