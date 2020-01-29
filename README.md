@@ -21,8 +21,10 @@ Syntax: ```run_recall.py -se [start_epoch] -ee[end_epoch] -k [top_k_value]```
 - tqdm
 - nltk
 - sklearn
+- scipy
 - cv2
 - PIL
+- gensim
 
 ### Download files from Drive with gdown
 To download file from Drive, you can use gdown (install by ```pip install gdown```)
