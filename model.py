@@ -180,8 +180,8 @@ class Deep_CNN_Text_Model(keras.Model):
     return x
 
 # ===== DEFINE LOSS =====
-def total_loss(model, input_x, target_y, alpha=1, lamb_0=1, lamb_1=1):
-  output, f_image_y, f_text_y = model(input_x)
+def total_loss(model, input_x, target_y, alpha=1, lamb_0=1, lamb_1=1, training=True):
+  output, f_image_y, f_text_y = model(input_x, training=training)
   classify_loss = lamb_1 * entropy_loss(y_true=target_y, y_pred=output)
   batch_size = int(len(target_y)/2)
   
