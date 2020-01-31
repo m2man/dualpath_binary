@@ -38,7 +38,7 @@ def eval_model(model, list_dataset):
     inputs = [tf.convert_to_tensor(img_ft, dtype=tf.float32), 
               tf.convert_to_tensor(txt_ft, dtype=tf.float32)]    
 
-    output, f_image_y, f_text_y = model(inputs)
+    output, f_image_y, f_text_y = model(inputs, training=False)
     classify_loss += lamb_1 * entropy_loss(y_true=lbl, y_pred=output) * batch_size * 2
     
     correct_class = output>0.5
