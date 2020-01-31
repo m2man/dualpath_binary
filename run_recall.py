@@ -84,7 +84,7 @@ def get_img_ft_from_branch(image_branch, list_img_names):
       print("Error happen in {}!".format(img_name))
 
     image_input_x = tf.convert_to_tensor(image_input_x, dtype=tf.float32)
-    images_out[idx] = image_branch(image_input_x).numpy()
+    images_out[idx] = image_branch(image_input_x, training=False).numpy()
 
   print("Finished processing Images Branch ...")
   return images_out
@@ -100,7 +100,7 @@ def get_txt_ft_from_branch(text_branch, list_text):
   for idx, text_x in enumerate(list_text):
     text_input_x = mylib.embedding_sentence(text_x, config.my_dictionary, max_len=max_len)
     text_input_x = tf.convert_to_tensor(text_input_x, dtype=tf.float32)
-    text_out[idx] = text_branch(text_input_x).numpy()
+    text_out[idx] = text_branch(text_input_x, training=False).numpy()
   print("Finished processing Text Branch ...")
   return text_out
 
